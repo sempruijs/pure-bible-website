@@ -1,4 +1,4 @@
-# Svelte Effect Nix Template
+# svelte Effect Nix Template
 
 This is a Nix-powered [Svelte](https://svelte.dev) template with [Effect](https://effect.website) integration. It builds an app fully reproducibly, including tests.
 
