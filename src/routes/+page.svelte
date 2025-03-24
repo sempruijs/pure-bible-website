@@ -31,16 +31,6 @@
 </script>
 
 <div class="m-8 p-4 border border-gray-300 rounded-md shadow-sm">
-	<h2 class="text-xl font-semibold mb-2">Effect Result:</h2>
-	<p class="font-bold text-blue-600">{state.result}</p>
-
-	<div class="mt-4">
-		<h3 class="text-lg font-medium mb-2">Effect Counter: {state.count}</h3>
-		<button
-			on:click={increment}
-			class="bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-		>
-			Increment with Effect
-		</button>
-	</div>
+	<h1>Pure bible</h1>
+	<p>Open source bible written in swiftui</p>
 </div>
