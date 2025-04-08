@@ -8,14 +8,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: cachix/install-nix-action@v18
-      - run: nix build .#default -L
-      - run: rm -rf public && mkdir -p public && cp -rT result/ public/
-      - run: ls -l public  # Debugging step
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Build with Nix
+        run: nix build .#default -L
+
+      - name: Check result symlink
+        run: |
+          echo "Result points to:"
+          ls -l result
+          file result
+
+      - name: Copy result to public
+        run: |
+          rm -rf public
+          mkdir -p public
+          cp -r result/* public/
+
+      - name: Debug public contents
+        run: |
+          echo "Contents of public:"
+          ls -al public
+          echo "Disk usage:"
+          du -sh public
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: public
-      
+
   deploy:
     needs: build-website
 
